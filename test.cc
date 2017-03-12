@@ -17,7 +17,7 @@ int main()
 
     a->a = 1;
 
-
+    a->b = 2;
     cout<<"hello world" <<endl;
-    cout<< a->a  <<endl;
+    cout<< a->a<<a->b  <<endl;
 }

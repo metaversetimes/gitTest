@@ -1,23 +1,49 @@
 #include<iostream>
-#include<memory>
-
 using namespace std;
-struct A
-{
+class CParent  
+{  
+public:  
+    CParent()  
+    {  
+        cout<<"Parent constructor"<<endl;  
+        m_Parent=new char[10];  
+  
+    }  
+    virtual ~CParent()  
+    {  
+        cout<<"Parent DEconstructor"<<endl;  
+        delete m_Parent;  
+    }  
+private:
+    char *m_Parent;  
 
-    int a;
-    int b;
-};
+};  
+class CHild:public CParent  
+{  
+public:  
+    CHild()  
+    {  
+        cout<<"CHild constructor"<<endl;  
+        m_CHild=new char[10];  
+          
+    }  
+    ~CHild()  
+    {  
+        cout<<"CHild DEconstructor"<<endl;  
+        delete m_CHild;  
+    }  
+private:
+    char *m_CHild;  
+  
+};  
+  
+int main()  
+{  
+    CParent *c = new CHild;  
+    delete c;  
+  
+  
+    return 0;  
+}  
 
 
-
-int main()
-{
-    auto a = make_shared<A>();
-
-    a->a = 1;
-
-    a->b = 2;
-    cout<<"hello world" <<endl;
-    cout<< a->a<<a->b  <<endl;
-}
